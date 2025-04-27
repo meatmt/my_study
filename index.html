@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>漢字テスト</title>
+    <title>韓国語</title></title>
     <style>
         html, body {
             height: 100%; /* ページ全体が高さ100%になるように */
@@ -93,7 +93,7 @@
 <body>
     <input type="text" id="searchInput" placeholder="検索..." oninput="searchKanji()" style="font-size: 2rem; padding: 10px; width: 80%;">
 <div id="searchResults"></div>
-    <div class="kanji-container" id="kanji">N3</div>
+    <div class="kanji-container" id="kanji">韓国語</div>
     <div id="reading" style="display: none; font-size: 1.5rem;"></div>
     <div class="buttons">
         <button onclick="showReading()">意味</button>
@@ -104,7 +104,22 @@
     <script>
         let kanjiList = [
             /*25ページ*/
-            { kanji: "今学校行くよ。", reading: "나지금학교가.", meaning: "ナ チグム ハッキョ カ" },
+            { kanji: "今学校行くよ", reading: "나지금학교가.", meaning: "ナ チグム ハッキョ カ" },
+            { kanji: "昨日友達の家行ったよ", reading: "어제친구집에갔어. ", meaning: "オジェ チング チベ カッソ" },
+            { kanji: "明日ソウルに行くつもり", reading: "내일서울갈거야. ", meaning: "ネイル ソウル カル コヤ" },
+            
+            { kanji: "友達、今来てる", reading: "친구지금와. ", meaning: "チング チグム ワ" },
+            { kanji: "さっき来たよ", reading: "아까왔어.", meaning: "アッカ ワッソ" },
+            { kanji: "明日来る予定だよ", reading: "내일올거야.", meaning: "ネイル オル コヤ" },
+            
+            { kanji: "ご飯食べてるよ", reading: "나밥먹어.", meaning: "ナ パプ モゴ" },
+            { kanji: "さっきラーメン食べた", reading: "아까라면먹었어. ", meaning: "アッカ ラミョン モゴッソ" },
+            { kanji: "後で一緒に食べる？", reading: "나중에같이먹을까? ", meaning: "ナジュンエ カッチ モグルッカ？" },
+            
+            { kanji: "コーヒー飲んでる", reading: "커피마셔. ", meaning: "コピ マショ" },
+            { kanji: "昨日飲みすぎた…", reading: "어제너무많이마셨어. ", meaning: "オジェ ノム マニ マショッソ" },
+            { kanji: "明日は水たくさん飲むよ", reading: "내일은물많이마실게. ", meaning: "ネイルン ムル マニ マシルケ" },
+            
             { kanji: "", reading: "", meaning: "" },
             { kanji: "", reading: "", meaning: "" },
             { kanji: "", reading: "", meaning: "" },
@@ -117,6 +132,26 @@
             { kanji: "", reading: "", meaning: "" },
             { kanji: "", reading: "", meaning: "" },
             { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            { kanji: "", reading: "", meaning: "" },
+            
             
         ];
         let currentIndex;
