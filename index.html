@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>韓国語</title></title>
+    <title>韓国語</title>
     <style>
         html, body {
             height: 100%; /* ページ全体が高さ100%になるように */
@@ -25,6 +25,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+        }
+        .kanji-area {
+            min-height: 250px; /* 韓国語と意味を合わせた高さ */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
         .buttons {
@@ -92,8 +100,10 @@
 <body>
     <input type="text" id="searchInput" placeholder="検索..." oninput="searchKanji()" style="font-size: 2rem; padding: 10px; width: 80%;">
 <div id="searchResults"></div>
-    <div class="kanji-container" id="kanji">韓国語</div>
-    <div id="reading" style="display: none; font-size: 1.5rem;"></div>
+    <div class="kanji-area">
+        <div class="kanji-container" id="kanji">韓国語</div>
+        <div id="reading" style="display: none; font-size: 1.5rem;"></div>
+    </div>
     <div class="buttons">
         <button onclick="showReading()">意味</button>
         <button onclick="nextKanji()">次</button>
