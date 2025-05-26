@@ -51,19 +51,29 @@
   flex-direction: column;
   align-items: center;  /* ← これで子要素（ボタン）を中央揃えに */
 }
-
-
-    button {
-  width: 200px;            /* 幅を固定 */
-  height: 60px;            /* 高さを固定 */
+        .buttons button {
+  width: 200px;   /* 例：幅200pxに統一 */
+  height: 60px;   /* 高さ60pxに統一 */
   font-size: 1.6rem;
-  padding: 0;              /* 高さに合わせて余白は調整 */
+  padding: 0;
   box-sizing: border-box;
   text-align: center;
-  display: inline-flex;     /* 中央揃え */
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 }
+
+
+
+    button {
+      margin: 15px;
+      padding: 15px 30px;
+      font-size: 2rem;
+    　height: 60px;           /* 高さを固定！ */
+  　　line-height: 1.2;       /* 行の高さも固定するとズレにくい */
+      box-sizing: border-box; /* パディングを含めて固定サイズにする */
+      overflow: hidden;
+    }
 
     .hidden {
       display: none;
