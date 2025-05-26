@@ -61,7 +61,14 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0;  /* ← 角丸なし（完全な四角） */
+  border-radius: 0; /* 角丸を完全になくす */
+}
+
+/* :hover, :active, :focus 時も形を変えない */
+.buttons button:hover,
+.buttons button:active,
+.buttons button:focus {
+  border-radius: 0;
 }
 
 
