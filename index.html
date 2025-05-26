@@ -35,18 +35,20 @@
   flex-shrink: 0; /* 高さを変えない */
 }
 
+}         /* 表示時に見える */
 }#reading {
   font-size: 1.5rem;
-  min-height: 2.5em;    /* スペース確保（必要に応じて調整） */
+  min-height: 2.5em;
   line-height: 1.5em;
   margin-top: 10px;
-  opacity: 0;            /* 最初は透明 */
-  transition: opacity 0.3s;  /* フェードイン効果（任意） */
+  opacity: 0;               /* 最初は透明 */
+  transition: opacity 0.3s; /* フェードイン効果（任意） */
 }
 
-#reading.show {
-  opacity: 1;            /* 表示時に見える */
+#reading.visible {
+  opacity: 1;               /* 表示されるときに見える */
 }
+
 
 
 
@@ -399,15 +401,17 @@
         function showReading() {
   const reading = document.getElementById("reading");
   reading.textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
-  reading.classList.add("show");
+  reading.classList.add('visible');  // 表示する
 }
 
+function nextKanji() {
+  currentIndex = Math.floor(Math.random() * currentList.length);
+  document.getElementById("kanji").textContent = currentList[currentIndex].kanji;
+  const reading = document.getElementById("reading");
+  reading.textContent = "";           // 読みは初期化
+  reading.classList.remove('visible'); // 非表示に戻す
+}
 
-        function nextKanji() {
-            currentIndex = Math.floor(Math.random() * currentList.length);
-            document.getElementById("kanji").textContent = currentList[currentIndex].kanji;
-            document.getElementById("reading").classList.add("hidden");
-        }
 
         function goHome() {
             document.getElementById("testScreen").classList.add("hidden");
