@@ -18,62 +18,39 @@
       overflow-y: auto;
     }
 
+    .kanji-container {
+      font-size: 6rem;
+      margin-bottom: 20px;
+      min-height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+
+
+    #reading {
+      font-size: 1.5rem;
+      min-height: 2.5em;
+      line-height: 1.5em;
+      text-align: center;
+      margin-top: 10px;
+    }
+
     .kanji-area {
-  width: 100%;
-  height: 300px;  /* 親コンテナの高さを完全固定 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 中央揃え */
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;  /* はみ出し防止 */
-}
-
-.kanji-container {
-  font-size: 6rem;
-  flex-shrink: 0; /* 高さを変えない */
-}
-
-        
-#reading {
-  font-size: 1.5rem;
-  min-height: 2.5em;    /* 高さ確保 */
-  line-height: 1.5em;
-  margin-top: 10px;
-  display: none;         /* 最初は非表示 */
-}
-
-#reading.show {
-  display: block;        /* 表示する */
-}
-
-
-
-
-
-
-
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
     .buttons {
   display: flex;
   flex-direction: column;
   align-items: center;  /* ← これで子要素（ボタン）を中央揃えに */
 }
-        .buttons button {
-  width: 200px;
-  height: 60px;
-  font-size: 1.6rem;
-  padding: 0;
-  box-sizing: border-box;
-  text-align: center;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px; /* ← 好きな角丸に調整！例:20px */
-}
-
-
 
 
     button {
