@@ -377,19 +377,16 @@
         }
 
         function showReading() {
-  const reading = document.getElementById("reading");
-  reading.textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
-  reading.classList.add('show');  // 表示切り替え
-}
+            document.getElementById("reading").textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
+            document.getElementById("reading").classList.remove("hidden");
+        }
 
-function nextKanji() {
-  currentIndex = Math.floor(Math.random() * currentList.length);
-  document.getElementById("kanji").textContent = currentList[currentIndex].kanji;
 
-  const reading = document.getElementById("reading");
-  reading.textContent = "";            // 読み初期化
-  reading.classList.remove('show');    // 非表示に戻す
-}
+        function nextKanji() {
+            currentIndex = Math.floor(Math.random() * currentList.length);
+            document.getElementById("kanji").textContent = currentList[currentIndex].kanji;
+            document.getElementById("reading").classList.add("hidden");
+        }
 
 
 
