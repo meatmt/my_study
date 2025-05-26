@@ -35,14 +35,19 @@
   flex-shrink: 0; /* 高さを変えない */
 }
 
-#reading {
+}#reading {
   font-size: 1.5rem;
-  flex-shrink: 0; /* 高さを変えない */
-  height: 3em;  /* 高さ固定 */
+  min-height: 2.5em;    /* スペース確保（必要に応じて調整） */
   line-height: 1.5em;
   margin-top: 10px;
-  overflow: hidden;
+  opacity: 0;            /* 最初は透明 */
+  transition: opacity 0.3s;  /* フェードイン効果（任意） */
 }
+
+#reading.show {
+  opacity: 1;            /* 表示時に見える */
+}
+
 
 
 
@@ -392,9 +397,11 @@
         }
 
         function showReading() {
-            document.getElementById("reading").textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
-            document.getElementById("reading").classList.remove("hidden");
-        }
+  const reading = document.getElementById("reading");
+  reading.textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
+  reading.classList.add("show");
+}
+
 
         function nextKanji() {
             currentIndex = Math.floor(Math.random() * currentList.length);
