@@ -19,27 +19,31 @@
     }
 
     .kanji-area {
-  position: relative; /* 位置制御の基準 */
   width: 100%;
-  height: 300px; /* 全体の高さを固定 */
+  height: 300px;  /* 親コンテナの高さを完全固定 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 中央揃え */
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;  /* はみ出し防止 */
 }
 
 .kanji-container {
-  position: absolute;
-  top: 20%; /* 上から20%（調整可） */
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 6rem;
+  flex-shrink: 0; /* 高さを変えない */
 }
 
 #reading {
-  position: absolute;
-  top: 60%; /* 上から60%（調整可） */
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 1.5rem;
-  text-align: center;
+  flex-shrink: 0; /* 高さを変えない */
+  height: 3em;  /* 高さ固定 */
+  line-height: 1.5em;
+  margin-top: 10px;
+  overflow: hidden;
 }
+
 
 
 
