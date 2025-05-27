@@ -197,7 +197,9 @@
     <div id="testScreen" class="hidden">
         <div class="kanji-area">
         <div class="kanji-container" id="kanji">N3</div>
-        <div id="reading" style="hidden: none; font-size: 1.5rem;"></div>
+        <!--<div id="reading" style="hidden: none; font-size: 1.5rem;"></div>-->
+        <div id="reading" style="font-size: 1.5rem;"></div>
+        <div id="meaning" style="font-size: 1.5rem;" class="hidden"></div>
     </div>
         <div class="buttons">
             <button onclick="showReading()">読み、意味</button>
@@ -523,10 +525,17 @@
             nextKanji();
         }
 
-        function showReading() {
+        /*function showReading() {
             document.getElementById("reading").textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
             document.getElementById("reading").classList.remove("hidden");
-        }
+        }*/
+        function showReading() {
+    document.getElementById("reading").textContent = currentList[currentIndex].reading;
+    document.getElementById("meaning").textContent = currentList[currentIndex].meaning;
+    document.getElementById("reading").classList.remove("hidden");
+    document.getElementById("meaning").classList.remove("hidden");
+}
+
 
 
         function nextKanji() {
