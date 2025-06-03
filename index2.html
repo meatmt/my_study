@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢字テスト</title>
+    <style>
+  html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      overflow-y: auto;
+    }
 
+    .kanji-container {
+      font-size: 6rem;
+      margin-bottom: 20px;
+      min-height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #reading {
+      font-size: 1.5rem;
+      min-height: 2.5em;
+      line-height: 1.5em;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .kanji-area {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+    button {
+      margin: 15px;
+      padding: 15px 30px;
+      font-size: 2rem;
+      height: 60px;
+      line-height: 1.2;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .buttons button {
+  width: 200px;
+  height: 60px;
+  font-size: 1.6rem;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+    .hidden {
+      display: none;
+    }
+    .homeButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.homeButtons button {
+  width: 100%;
+  max-width: 220px;
+  font-size: 1.6rem;
+  height: 60px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 1.2rem;
+      }
+      .kanji-container {
+        font-size: 3rem;
+        min-height: 100px;
+      }
+      #reading {
+        font-size: 1rem;
+        min-height: 2em;
+      }
+      button {
+    font-size: 1.2rem;
+    height: 50px;
+    line-height: 1.2;
+    padding: 10px 20px;
+  }
+        #homeScreen button {
+    font-size: 1.2rem;
+    height: 50px;
+  }
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
+      body {
+        font-size: 2rem;
+      }
+      .kanji-container {
+        font-size: 6rem;
+      }
+      button {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media screen and (min-width: 1025px) {
+      body {
+        font-size: 2.5rem;
+      }
+      .kanji-container {
+        font-size: 8rem;
+      }
+      button {
+        font-size: 2rem;
+      }
+    }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0079Q5WD3J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0079Q5WD3J');
+    </script>
+
+</head>
+<body>
+    <div id="homeScreen">
+        <h1 style="text-align:center">NO RANDOM</h1>
+  <div class="homeButtons">
+    <button onclick="startTest(10)">10~34</button>
+    <button onclick="startTest(11)">35~59</button>
+    <button onclick="startTest(12)">60~84</button>
+    <button onclick="startTest(13)">85~109</button>
+    <button onclick="startTest(14)">110~134</button>
+    <button onclick="startTest(15)">135~</button>
+    <button onclick="location.href='https://meatmt.github.io/kanji-test/'">전부의 복습</button>
+    <button onclick="location.href='index.html'">랜덤</button>
+  </div>
+</div>
+
+    <div id="testScreen" class="hidden">
+        <div class="kanji-area">
+        <div class="kanji-container" id="kanji">N3</div>
+        <div id="reading" style="hidden: none; font-size: 1.5rem;"></div>
+    </div>
+        <div class="buttons">
+            <button onclick="showReading()">뜻과 읽기</button>
+            <button onclick="nextKanji()">다음</button>
+            <button onclick="goHome()">홈으로 돌아가다</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        let currentList = [];
+        let currentIndex = -1;
+
+        function startTest(page) {
+            currentList = kanjiLists[page];
+            currentIndex = -1; // 初期化
+            document.getElementById("homeScreen").classList.add("hidden");
+            document.getElementById("testScreen").classList.remove("hidden");
+            nextKanji();
+        }
+
+        function showReading() {
+            document.getElementById("reading").textContent = `${currentList[currentIndex].reading} (${currentList[currentIndex].meaning})`;
+            document.getElementById("reading").classList.remove("hidden");
+        }
+
+        function nextKanji() {
+            currentIndex++;
+            if (currentIndex >= currentList.length) {
+                currentIndex = 0; // 最後までいったら最初に戻る
+            }
+            document.getElementById("kanji").textContent = currentList[currentIndex].kanji;
+            document.getElementById("reading").classList.add("hidden");
+        }
+
+        function goHome() {
+            document.getElementById("testScreen").classList.add("hidden");
+            document.getElementById("homeScreen").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
