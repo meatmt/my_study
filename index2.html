@@ -181,7 +181,443 @@
     </div>
 
     <script>
-        
+        const kanjiLists = {
+            10: [
+                { kanji: "言う", reading: "말하다-말해요-말했어요", meaning: "" },
+                { kanji: "話す", reading: "이야기하다-이야기해요-이야기했어요", meaning: "" },
+                { kanji: "教える", reading: "가르치다-가르쳐요-가르쳤어요", meaning: "" },
+                { kanji: "学ぶ", reading: "배우다-배워요-배웠어요", meaning: "" },
+                { kanji: "働く", reading: "일하다-일해요-일했어요", meaning: "" },
+                { kanji: "聞こえる", reading: "들리다-들려요드-들렸어요", meaning: "" },
+                { kanji: "読む", reading: "읽다-읽어요-읽었어요", meaning: "" },
+                { kanji: "書く", reading: "쓰다-써요-썼어요", meaning: "" },
+                { kanji: "作る", reading: "만들다-만들어요-만들었어요", meaning: "" },
+                { kanji: "知る", reading: "알다-알아요-알았어요", meaning: "" },
+                { kanji: "売る", reading: "팔다-팔아요-팔았어요", meaning: "" },
+                { kanji: "なる", reading: "되다-돼요-됐어요", meaning: "トェダ―トェヨ―トェッソヨ" },
+                { kanji: "見つける・探す", reading: "찾다-찾아요-찾았어요", meaning: "チャッタ―チャジャヨ―チャジャッソヨ" },
+                { kanji: "住む", reading: "살다-살아요-살았어요", meaning: "" },
+                { kanji: "出す", reading: "내다-내요-냈어요", meaning: "" },
+                { kanji: "笑う", reading: "웃다-웃어요-웃었어요", meaning: "" },
+                { kanji: "座る", reading: "앉다-앉아요-앉았어요", meaning: "" },
+                { kanji: "遊ぶ", reading: "놀다-놀아요-놀았어요", meaning: "" },
+                { kanji: "着る", reading: "입다-입어요-입었어요", meaning: "" },
+                { kanji: "考える", reading: "생삭하다-생삭해요-생삭했어요", meaning: "" },
+                { kanji: "出る", reading: "나다-나요-났어요", meaning: "" },
+                { kanji: "聞いてみる", reading: "물어보다-물어봐요-물어봤어요", meaning: "" },
+                { kanji: "送る", reading: "보내다-보내요-보냈어요", meaning: "" },
+                { kanji: "着替える", reading: "갈아입다-갈아입어요-갈아입었어요", meaning: "" },
+                { kanji: "撮る", reading: "찍다-찍어요-찍었어요", meaning: "" },
+                { kanji: "歩く", reading: "걷다-갈어요-걸었어요", meaning: "" },
+                { kanji: "通う", reading: "다니다-다녀요-다녔어요", meaning: "" },
+                { kanji: "走る", reading: "달리다-달려요-달렸어요", meaning: "" },
+                { kanji: "信じる", reading: "믿다-믿어요-믿었어요", meaning: "" },
+                { kanji: "受ける", reading: "받다-받아-받었어요", meaning: "" },
+                { kanji: "呼ぶ", reading: "부르다-불러요-불렀어요", meaning: "" },
+                { kanji: "休む", reading: "쉬다-쉬어요-쉬었어요", meaning: "" },
+                { kanji: "洗う", reading: "씻다-씻어요-씻었어요", meaning: "" },
+                { kanji: "良くなる", reading: "좋아지다-좋아져요-좋아졌어요", meaning: "" },
+                { kanji: "悪くなる", reading: "나빠지다-나빠져요-나빠졌어요", meaning: "" },
+                { kanji: "上手だ", reading: "잘하다-잘해요-잘했어요", meaning: "" },
+                { kanji: "下手だ・できない", reading: "못하다-못해요-못했어요", meaning: "" },
+                { kanji: "上がる", reading: "오르다-올라요-올랐어요", meaning: "" },
+                { kanji: "降りる", reading: "내리다-내려요-내렸어요", meaning: "" },
+                { kanji: "落ちる", reading: "떨어지다-떨어져요-떨어졌어요", meaning: "" },
+                { kanji: "付き合う", reading: "사귀다-사귀어요-사귀었어요", meaning: "" },
+                { kanji: "別れる", reading: "헤어지다-헤어져요-헤어졌어요", meaning: "" },
+                { kanji: "戦う", reading: "싸우다-싸워요-싸웠어요", meaning: "" },
+                { kanji: "守る", reading: "지키다-지켜요-지켰어요", meaning: "" },
+                { kanji: "開ける", reading: "열다-열어요-열었어요", meaning: "" },
+                { kanji: "閉める", reading: "닫다-닫아요-닫았어요", meaning: "" },
+                { kanji: "合う", reading: "맞다-맞아요-맞았어요", meaning: "" },
+                { kanji: "間違う", reading: "틀리다-틀려요-틀렸어요", meaning: "" },
+                { kanji: "履く", reading: "신다-신어요-신었어요", meaning: "" },
+                { kanji: "脱ぐ", reading: "벗다-벗어요-벗었어요", meaning: "" },
+                { kanji: "楽しむ", reading: "즐기다-즐겨요-즐겼어요", meaning: "" },
+                { kanji: "描く", reading: "그리다-그려요-그렸어요", meaning: "" },
+                { kanji: "覚える", reading: "외우다-외워요-외웠어요", meaning: "" },
+                { kanji: "忘れる", reading: "잊다-잊어여-잊었어요", meaning: "" },
+                { kanji: "失う", reading: "잃다-잃어요-잃었어요", meaning: "" },
+                { kanji: "捨てる", reading: "버리다-버려요-버렸어요", meaning: "" },
+                { kanji: "持つ・所有する", reading: "가지다-가져요-가졌어요", meaning: "" },
+                { kanji: "持つ・入る", reading: "들다-들어요-들었어요", meaning: "" },
+                { kanji: "生まれる", reading: "태어나다-태어나요-태어났어요", meaning: "" },
+                { kanji: "できる・生じる", reading: "생기다-생겨요-생겼어요", meaning: "" },
+                { kanji: "増える", reading: "--", meaning: "" },
+                { kanji: "なくなる", reading: "--", meaning: "" },
+                { kanji: "遅れる", reading: "--", meaning: "" },
+                { kanji: "腹が立つ", reading: "--", meaning: "" },
+                { kanji: "変える・変換する", reading: "--", meaning: "" },
+                { kanji: "変わる", reading: "--", meaning: "" },
+                { kanji: "目が覚める・割る・壊す", reading: "--", meaning: "" },
+                { kanji: "超える", reading: "--", meaning: "" },
+                { kanji: "止む", reading: "--", meaning: "" },
+                { kanji: "泣く・鳴く", reading: "--", meaning: "" },
+                { kanji: "捕まえる", reading: "--", meaning: "" },
+                { kanji: "置く", reading: "--", meaning: "" },
+                { kanji: "残る", reading: "--", meaning: "" },
+                { kanji: "残す", reading: "--", meaning: "" },
+                { kanji: "触る", reading: "--", meaning: "" },
+                { kanji: "切る", reading: "--", meaning: "" },
+                { kanji: "", reading: "--", meaning: "" },
+                { kanji: "", reading: "--", meaning: "" },
+                { kanji: "", reading: "--", meaning: "" },
+                
+
+
+
+
+                
+                
+            ],
+
+
+
+
+
+
+
+
+
+
+
+            
+            11: [
+                { kanji: "大きい", reading: "크다-커요-컸어요", meaning: "クダ-コヨ-コッソヨ" },
+                { kanji: "小さい", reading: "작다-작아요-작았어요", meaning: "チャクタ-チャガヨ-チャガッソヨ" },
+                { kanji: "多い", reading: "많다-많아요-많았어요", meaning: "マンタ-マナヨ-マナッソヨ" },
+                { kanji: "少ない", reading: "적다-적어요-적었어요", meaning: "チョクタ-チョゴヨ-チョゴッソヨ" },
+                { kanji: "可愛い、きれいだ", reading: "예쁘다-예뻐요-예뻤어요", meaning: "イェップダ-イェッポヨ-イェッポッソヨ" },
+                { kanji: "いい", reading: "좋다-좋아요-좋았어요", meaning: "チョタ-チョアヨ-チョアッソヨ" },
+                { kanji: "悪い", reading: "나쁘다-나빠요-나빴어요", meaning: "ナップダ-ナッパヨ-ナッパッソヨ" },
+                { kanji: "いる・ある", reading: "있다-있어요-있었어요", meaning: "イッタ-イッソヨ-イッソッソヨ" },
+                { kanji: "いない・ない", reading: "없다-없어요-없었어요", meaning: "オプタ-オプソヨ-オプソッソヨ" },
+                { kanji: "大丈夫だ", reading: "괜찮다-괜찮아요-괜찮았어요", meaning: "クェンチャンタ-クェンチャナヨ-クェンチャナッソヨ" },
+                { kanji: "きれいだ,清潔だ", reading: "깨끗하다-깨끗해요-깨끗했어요", meaning: "ッケクッタダ-ッケクッテヨ-ッケクッテッソヨ" },
+                { kanji: "汚い", reading: "더럽다-더러워요-더러웠어요", meaning: "トロプタ-トロウォヨ-トロウォッソヨ" },
+                { kanji: "高い（値段）", reading: "비싸다-비싸요-비쌌어요", meaning: "ピッサダ-ピッサヨ-ピッサッソヨ" },
+                { kanji: "安い（値段）", reading: "싸다-싸요-쌌어요", meaning: "ッサダ-ッサヨ-ッサッソヨ" },
+                { kanji: "同じだ", reading: "같다-같아요-같았어요", meaning: "カッタ-カタヨ-カタッソヨ" },
+                { kanji: "難しい", reading: "어렵다-어려워요-어려웠어요", meaning: "オリョプタ-オリョウォヨ-オリョウォッソヨ" },
+                { kanji: "簡単だ", reading: "간단하다-간단해요-간단했어요", meaning: "カンダナダ-カンダネヨ-カンダネッソヨ" },
+                { kanji: "面白い", reading: "재미있다-재미있어요-재미있었어요", meaning: "チェミイッタ-チェミイッソヨ-チェミイッソッソヨ" },
+                { kanji: "つまらない", reading: "재미없다-재미없어요-재미없었어요", meaning: "チェミオプタ-チェミオプソヨ-チェミオプソッソヨ" },
+                { kanji: "混んでいる・複雑だ", reading: "복잡하다-복잡해요-복잡했어요", meaning: "ポクチャパダ-ポクチャペヨ-ポクチャペッソヨ" },
+                { kanji: "格好いい", reading: "멋있다-멋있어요-멋있었어요", meaning: "モシッタ-モシッソヨ-モシッソッソヨ" },
+                { kanji: "格好悪い", reading: "멋없다-멋없어요-멋없었어요", meaning: "モドプタ-モドプソヨ-モドプソッソヨ" },
+                { kanji: "静かだ", reading: "조용하다-조용해요-조용했어요", meaning: "チョヨンハダ-チョヨンヘヨ-チョヨンヘッソヨ" },
+                { kanji: "うるさい", reading: "시끄럽다-시끄러워요-시끄러웠어요", meaning: "シクロプタ-シクロウォヨ-シクロウォッソヨ" },
+                { kanji: "違う", reading: "다르다-달라요-달랐어요", meaning: "タルダ-タルラヨ-タルラッソヨ" },
+                { kanji: "広い", reading: "넓다-넓어요-넓었어요", meaning: "ノルプタ-ノルポヨ-ノルポッソヨ" },
+                { kanji: "狭い", reading: "좁다-좁아요-좁았어요", meaning: "チョプタ-チョバヨ-チョバッソヨ" },
+                { kanji: "高い（値段以外）", reading: "높다-높아요-높았어요", meaning: "ノプタ-ノパヨ-ノパッソヨ" },
+                { kanji: "低い（値段以外）", reading: "낮다-낮아요-낮았어요", meaning: "ナッタ-ナジャヨ-ナジャッソヨ" },
+                { kanji: "似ている", reading: "비슷하다-비슷해요-비슷했어요", meaning: "ピスッタダ-ピスッテヨ-ピスッテッソヨ" },
+                { kanji: "長い", reading: "길다-길어요-길었어요", meaning: "キルダ-キロヨ-キロッソヨ" },
+                { kanji: "短い", reading: "짧다-짧아요-짧았어요", meaning: "チャルプタ-チャルバヨ-チャルバッソヨ" },
+                { kanji: "遠い", reading: "멀다-멀어요-멀었어요", meaning: "モルダ-モロヨ-モロッソヨ" },
+                { kanji: "近い", reading: "가깝다-가까워요-가까웠어요", meaning: "カッカプタ-カッカウォヨ-カッカウォッソヨ" },
+                { kanji: "楽しい", reading: "즐겁다-즐거워요-즐거웠어요", meaning: "チュルゴプタ-チュルゴウォヨ-チュルゴウォッソヨ" },
+                { kanji: "嬉しい", reading: "기쁘다-기뻐요-기뻤어요", meaning: "キップダ-キッポヨ-キッポッソヨ" },
+                { kanji: "悲しい", reading: "슬프다-슬퍼요-슬펐어요", meaning: "スルプダ-スルポヨ-スルポッソヨ" },
+                { kanji: "幸せだ", reading: "행복하다-행복해요-행복했어요", meaning: "ヘンボカダ-ヘンボケヨ-ヘンボケッソヨ" },
+                { kanji: "早い・速い", reading: "빠르다-빨라요-빨랐어요", meaning: "ッパルダ-ッパルラヨ-ッパルラッソヨ" },
+                { kanji: "遅い", reading: "느리다-느려요-느렸어요", meaning: "ヌリダ-ヌリョヨ-ヌリョッソヨ" },
+                { kanji: "疲れる", reading: "피곤하다-피곤해요-피곤했어요", meaning: "ピゴナダ-ピゴネヨ-ピゴネッソヨ" },
+                { kanji: "痛い・（体の具合が）悪い", reading: "아프다-아파요-아팠어요", meaning: "アプダ-アパヨ-アパッソヨ" },
+                { kanji: "大変だ・疲れる", reading: "힘들다-힘들어요-힘들었어요", meaning: "ヒムドゥルダ-ヒムドゥロヨ-ヒムドゥロッソヨ" },
+                { kanji: "退屈だ", reading: "심심하다-심심해요-심심했어요", meaning: "シムシマダ-シムシメヨ-シムシメッソヨ" },
+                { kanji: "暇だ", reading: "한가하다-한가해요-한가했어요", meaning: "ハンガハダ-ハンガヘヨ-ハンガヘッソヨ" },
+                { kanji: "暖かい・温かい", reading: "따뜻하다-따뜻해요-따뜻했어요", meaning: "ッタットゥタダ-ッタットゥテヨ-ッタットゥテッソヨ" },
+                { kanji: "冷たい・涼しい・スッキリする", reading: "시원하다-시원해요-시원했어요", meaning: "シウォナダ-シウォネヨ-シウォネッソヨ" },
+                { kanji: "暑い", reading: "덥다-더워요-더웠어요", meaning: "トプタ-トウォヨ-トウォッソヨ" },
+                { kanji: "寒い", reading: "춥다-추워요-추웠어요", meaning: "チュプタ-チュウォヨ-チュウォッソヨ" },
+                { kanji: "蒸し暑い", reading: "후덥지근하다-후덥지근해요-후덥지근했어요", meaning: "フドプチグナダ-フドプチグネヨ-フドプチグネッソヨ" },
+                { kanji: "肌寒い", reading: "쌀쌀하다-쌀쌀해요-쌀쌀했어요", meaning: "ッサルッサラダ-ッサルッサレヨ-ッサルッサレッソヨ" },
+                { kanji: "涼しい", reading: "선선하다-선선해요-선선했어요", meaning: "ソンソナダ-ソンソネヨ-ソンソネッソヨ" },
+                { kanji: "冷たい", reading: "차갑다-차가워요-차가웠어요", meaning: "チャガプタ-チャガウォヨ-チャガウォッソヨ" },
+                { kanji: "重い", reading: "무겁다-무거워요-무거웠어요", meaning: "ムゴプタ-ムゴウォヨ-ムゴウォッソヨ" },
+                { kanji: "軽い", reading: "가볍다-가벼워요-가벼웠어요", meaning: "カビョプタ-カビョウォヨ-カビョウォッソヨ" },
+                { kanji: "美味しい", reading: "맛있다-맛있어요-맛있었어요", meaning: "マシッタ-マシッソヨ-マシッソッソヨ" },
+                { kanji: "まずい", reading: "맛없다-맛없어요-맛없었어요", meaning: "マドプタ-マドプソヨ-マドプソッソヨ" },
+                { kanji: "甘い", reading: "달다-달아요-달았어요", meaning: "タルダ-タラヨ-タラッソヨ" },
+                { kanji: "辛い", reading: "맵다-매워요-매웠어요", meaning: "メプタ-メウォヨ-メウォッソヨ" },
+                { kanji: "しょっぱい", reading: "짜다-짜요-짰어요", meaning: "ッチャダ-ッチャヨ-ッチャッソヨ" },
+                { kanji: "美しい", reading: "아름답다-아름다워요-아름다웠어요", meaning: "アルムダプタ-アルムダウォヨ-アルムダウォッソヨ" },
+                { kanji: "可愛い", reading: "귀엽다-귀여워요-귀여웠어요", meaning: "クィヨプタ-クィヨウォヨ-クィヨウォッソヨ" },
+                { kanji: "親切だ", reading: "친절하다-친절해요-친절했어요", meaning: "チンジョラダ-チンジョレヨ-チンジョレッソヨ" },
+                { kanji: "慣れている", reading: "익숙하다-익숙해요-익숙했어요", meaning: "イクスカダ-イクスケヨ-イクスケッソヨ" },
+                { kanji: "スリムだ", reading: "날씬하다-날씬해요-날씬했어요", meaning: "ナルッシナダ-ナルッシネヨ-ナルッシネッソヨ" },
+
+
+                { kanji: "大きい", reading: "크다-커요-컸어요", meaning: "クダ-コヨ-コッソヨ" },
+                
+             
+            ],
+
+
+
+
+
+
+
+
+
+
+
+            
+            12: [
+                { kanji: "～は", reading: "은/는", meaning: "ウン・ヌン" },
+                { kanji: "～が", reading: "이/가", meaning: "イ・ガ" },
+                { kanji: "～を", reading: "을/를", meaning: "ウル・ルル" },
+                { kanji: "～の", reading: "의", meaning: "エ" },
+                { kanji: "～と", reading: "하고", meaning: "ハゴ" },
+                { kanji: "～に", reading: "한테/에게", meaning: "ハンテ・エゲ" },
+                { kanji: "～から", reading: "에게서", meaning: "エゲソ" },
+                { kanji: "～へ・～に", reading: "로/으로", meaning: "ロ・ウロ" },
+                { kanji: "～で（手段）", reading: "로/으로", meaning: "ロ・ウロ" },
+                { kanji: "～と", reading: "랑/이랑", meaning: "ラン・イラン" },
+                { kanji: "～から（時間）", reading: "부터", meaning: "ブト" },
+                { kanji: "～まで", reading: "까지", meaning: "ッカジ" },
+                { kanji: "～で（場所）", reading: "에서", meaning: "エソ" },
+                { kanji: "～から", reading: "에서", meaning: "エソ" },
+                { kanji: "～より（比較）", reading: "보다", meaning: "ポダ" },
+            
+            ],
+
+
+
+
+
+
+
+
+
+
+
+            
+            13: [
+                { kanji: "毎日", reading: "날마다", meaning: "ナルマダ" },
+                { kanji: "毎日", reading: "매일", meaning: "メイル" },
+                { kanji: "よく", reading: "자주", meaning: "チャジュ" },
+                { kanji: "たまに", reading: "가끔", meaning: "カックム" },
+                { kanji: "ほとんど・ほぼ", reading: "거의", meaning: "コイ" },
+                { kanji: "いつも", reading: "언제나", meaning: "オンジェナ" },
+                { kanji: "いつも", reading: "항상", meaning: "ハンサン" },
+                { kanji: "常に", reading: "늘", meaning: "ヌル" },
+                { kanji: "時々・しばしば", reading: "종종", meaning: "チョンジョン" },
+                { kanji: "全く", reading: "전혀", meaning: "チョニョ" },
+                { kanji: "早く（予定より）", reading: "일찍", meaning: "イルッチク" },
+                { kanji: "早く", reading: "빨리", meaning: "ッパルリ" },
+                { kanji: "前もって", reading: "미리", meaning: "ミリ" },
+                { kanji: "まだ", reading: "아직", meaning: "アジク" },
+                { kanji: "もう", reading: "벌써", meaning: "ポルッソ" },
+                { kanji: "必ず", reading: "꼭", meaning: "ッコク" },
+                { kanji: "すぐ", reading: "바로", meaning: "パロ" },
+                { kanji: "さっき", reading: "아까", meaning: "アッカ" },
+                { kanji: "後で・後程", reading: "이따가", meaning: "イッタガ" },
+                { kanji: "ついさっき", reading: "방금", meaning: "パングム" },
+                { kanji: "長い間", reading: "오래", meaning: "オレ" },
+                { kanji: "ちょっと", reading: "잠깐", meaning: "チャムッカン" },
+                { kanji: "しばらく", reading: "잠시", meaning: "チャムシ" },
+                { kanji: "先に・まず", reading: "먼저", meaning: "モンジョ" },
+                { kanji: "突然・急に", reading: "갑자기", meaning: "カプチャギ" },
+            
+            ],
+
+
+
+
+
+
+
+
+
+
+
+            
+            14: [
+                { kanji: "私", reading: "저/나", meaning: "チョ・ナ" },
+                { kanji: "あなた・君", reading: "당신/너", meaning: "タンシン・ノ" },
+                { kanji: "おばさん", reading: "이모", meaning: "イモ" },
+                { kanji: "おじさん", reading: "삼촌", meaning: "サムチョン" },
+                { kanji: "社長", reading: "사장님", meaning: "サジャンニム" },
+                { kanji: "予約", reading: "예약/예매", meaning: "イェヤク・イェメ" },
+                { kanji: "両替", reading: "환전", meaning: "ファンジョン" },
+                { kanji: "荷", reading: "짐", meaning: "チム" },
+                { kanji: "財布", reading: "지갑", meaning: "チガプ" },
+                { kanji: "靴・履物", reading: "신발", meaning: "シンバル" },
+                { kanji: "鞄", reading: "가방", meaning: "カバン" },
+                { kanji: "帽子", reading: "모자  ", meaning: "モジャ" },
+                { kanji: "", reading: "", meaning: "" },
+                { kanji: "", reading: "", meaning: "" },
+                { kanji: "", reading: "", meaning: "" },
+                { kanji: "", reading: "", meaning: "" },
+                { kanji: "", reading: "", meaning: "" },
+                { kanji: "", reading: "", meaning: "" },
+            
+            ],
+
+
+
+
+
+
+
+
+
+
+
+            
+            15: [
+                { kanji: "今学校行くよ", reading: "나지금학교가.", meaning: "ナ チグム ハッキョ カ" },
+                { kanji: "昨日友達の家行ったよ", reading: "어제친구집에갔어.", meaning: "オジェ チング チベ カッソ" },
+                { kanji: "明日ソウルに行くつもり", reading: "내일서울갈거야.", meaning: "ネイル ソウル カル コヤ" },
+                { kanji: "友達、今来てる", reading: "친구지금와.", meaning: "チング チグム ワ" },
+                { kanji: "さっき来たよ", reading: "아까왔어.", meaning: "アッカ ワッソ" },
+                { kanji: "明日来る予定だよ", reading: "내일올거야.", meaning: "ネイル オル コヤ" },
+                { kanji: "ご飯食べてるよ", reading: "나밥먹어.", meaning: "ナ パプ モゴ" },
+                { kanji: "さっきラーメン食べた", reading: "아까라면먹었어.", meaning: "アッカ ラミョン モゴッソ" },
+                { kanji: "後で一緒に食べる？", reading: "나중에같이먹을까?", meaning: "ナジュンエ カッチ モグルッカ?" },
+                { kanji: "コーヒー飲んでる", reading: "커피마셔.", meaning: "コピ マショ" },
+                { kanji: "昨日飲みすぎた…", reading: "어제너무많이마셨어.", meaning: "オジェ ノム マニ マショッソ" },
+                { kanji: "明日は水たくさん飲むよ", reading: "내일은물많이마실게.", meaning: "ネイルン ムル マニ マシルケ" },
+                { kanji: "今映画見てる", reading: "지금영화봐.", meaning: "チグム ヨンファ ブァ" },
+                { kanji: "昨日あのドラマ見たよ！", reading: "어제그드라마봤어!", meaning: "オジェ ク ドゥラマ ブァッソ" },
+                { kanji: "週末に一緒に見よう", reading: "주말에같이보자.", meaning: "チュマレ カッチ ポジャ" },
+                { kanji: "最近この曲よく聞いてる", reading: "요즘이노래자주들어.", meaning: "ヨジュム イ ノレ チャジュ トゥロ" },
+                { kanji: "さっき聞いたよ", reading: "방금들었어.", meaning: "パングム トゥロッソ" },
+                { kanji: "後で聞くね", reading: "이따가들을게.", meaning: "イッタガ トゥルルケ" },
+                { kanji: "今お母さんと話してる", reading: "지금엄마랑말하고있어.", meaning: "チグム オンマラン マラゴ イッソ" },
+                { kanji: "さっき言ったじゃん！", reading: "나아까말했잖아!", meaning: "ナ アッカ マレッチャナ" },
+                { kanji: "後で話すね", reading: "나중에말해줄게.", meaning: "ナジュンエ マレジュルケ" },
+                { kanji: "今、本読んでるとこ", reading: "지금책읽는중이야.", meaning: "チグム チェク イルヌン チュンイヤ" },
+            　  { kanji: "昨日全部読んだよ", reading: "어제다읽었어.", meaning: "オジェ タ イルゴッソ" },
+                { kanji: "後で読むね", reading: "이따가읽을게.", meaning: "イッタガ イルグルケ" },
+                { kanji: "手紙書いてるよ", reading: "편지쓰고있어.", meaning: "ピョンジ スゴ イッソ" },
+                { kanji: "日記書いたよ", reading: "일기썼어.", meaning: "イルギ ソッソ" },
+                { kanji: "後で書くね", reading: "나중에쓸게.", meaning: "ナジュンエ スルケ" },
+                { kanji: "もう寝るよ", reading: "나지금잘거야.", meaning: "ナ チグム チャル コヤ" },
+                { kanji: "さっきちょっと寝た", reading: "아까좀잤어.", meaning: "アッカ チョム チャッソ" },
+                { kanji: "今日は早く寝るね", reading: "오늘일찍잘게.", meaning: "オヌル イルチク チャルケ" },
+                { kanji: "今起きた", reading: "지금일어났어.", meaning: "チグム イロナッソ" },
+                { kanji: "今日遅く起きた", reading: "오늘늦게일어났어.", meaning: "オヌル ヌッケ イロナッソ" },
+                { kanji: "明日は早く起きるよ", reading: "내일은일찍일어날거야.", meaning: "ネイルン イルチク イロナル コヤ" },
+                { kanji: "プレゼントあげるよ", reading: "선물줄게.", meaning: "ソンムル チュルケ" },
+                { kanji: "昨日あげた", reading: "어제줬어.", meaning: "オジェ チュォッソ" },
+                { kanji: "明日あげるね", reading: "내일줄게.", meaning: "ネイル チュルケ" },
+                { kanji: "今宅配もらった", reading: "지금택배받았어.", meaning: "チグム テクペ パダッソ" },
+                { kanji: "昨日プレゼントもらった", reading: "어제선물받았어.", meaning: "オジェ ソンムル パダッソ" },
+                { kanji: "来週もらう予定だよ", reading: "다음주에받을거야.", meaning: "タウム チュエ パドゥル コヤ" },
+                { kanji: "今なに買ったの？", reading: "지금뭐샀어?", meaning: "チグム ムォ サッソ？" },
+                { kanji: "昨日靴買った", reading: "어제신발샀어.", meaning: "オジェ シンバル サッソ" },
+                { kanji: "今週服買うつもり", reading: "이번주에옷살거야.", meaning: "イボン チュエ オッ サル コヤ" },
+                { kanji: "これ売るつもり", reading: "이거팔거야.", meaning: "イゴ パル コヤ" },
+                { kanji: "昨日全部売ったよ", reading: "어제다팔았어.", meaning: "オジェ タ パラッソ" },
+                { kanji: "今回中古で売ろうかな", reading: "이번에중고로팔까해.", meaning: "イボネ チュンゴロ パルッカ ヘ" },
+                { kanji: "今キンパ作ってる", reading: "지금김밥만들고있어.", meaning: "チグム キンパッ マンドゥルゴ イッソ" },
+                { kanji: "昨日ケーキ作った", reading: "어제케이크만들었어.", meaning: "オジェ ケイク マンドゥロッソ" },
+                { kanji: "週末に作るよ", reading: "주말에만들거야.", meaning: "チュマレ マンドゥル コヤ" },
+                { kanji: "最近日本語習ってる", reading: "요즘일본어배워.", meaning: "ヨジュム イルボノ ペウォ" },
+                { kanji: "高校の時中国語習ってた", reading: "고등학교때중국어배웠어.", meaning: "コドゥンハッキョ ッテ チュングゴ ペウォッソ" },
+                { kanji: "来月から習おうと思ってる", reading: "다음달부터배우려고해.", meaning: "タウム タルブト ペウリョゴ ヘ" },
+                { kanji: "英語教えてるよ", reading: "영어가르쳐.", meaning: "ヨンオ カルチョ" },
+                { kanji: "前に子どもたち教えた", reading: "전에아이들가르쳤어.", meaning: "チョネ アイドゥル カルチョッソ" },
+                { kanji: "後で教えるよ", reading: "나중에가르칠거야.", meaning: "ナジュンエ カルチル コヤ" },
+                { kanji: "今会社で働いてる", reading: "지금회사에서일해.", meaning: "チグム フェサエソ イレ" },
+                { kanji: "昨日も働いた", reading: "어제도일했어.", meaning: "オジェド イレッソ" },
+                { kanji: "週末も働くよ", reading: "주말에도일할거야.", meaning: "チュマレド イラル コヤ" },
+                { kanji: "最近めっちゃ勉強してる", reading: "나요즘열심히공부해.", meaning: "ナ ヨジュム ヨルッシミ コンブヘ" },
+                { kanji: "昨日徹夜で勉強した", reading: "어제밤새공부했어.", meaning: "オジェ パムセ コンブヘッソ" },
+                { kanji: "明日からもっと頑張る", reading: "내일부터더열심히공부할거야.", meaning: "ネイルブト ト ヨルッシミ コンブハル コヤ" },
+                { kanji: "今日は友達と遊んだ", reading: "오늘친구랑놀았어.", meaning: "オヌル チングラン ノラッソ" },
+                { kanji: "最近あんまり遊ばない", reading: "요즘잘안놀아.", meaning: "ヨジュム チャル アン ノラ" },
+                { kanji: "週末は思いっきり遊ぶ！", reading: "주말에신나게놀거야.", meaning: "チュマレ シンナゲ ノル コヤ" },
+                { kanji: "今ちょっと休んでる", reading: "지금좀쉬는중이야.", meaning: "チグム チョム シヌン チュンイヤ" },
+                { kanji: "昨日一日中休んだ", reading: "어제하루종일쉬었어.", meaning: "オジェ ハル チョンイル シウォッソ" },
+                { kanji: "明日はゆっくり休むよ", reading: "내일푹쉴거야.", meaning: "ネイル プク シル コヤ" },
+                { kanji: "ジムで運動してる", reading: "헬스장에서운동해.", meaning: "ヘルスジャンエソ ウンドンヘ" },
+                { kanji: "昨日は運動しなかった", reading: "어제운동안했어.", meaning: "オジェ ウンドン アネッソ" },
+                { kanji: "来週から運動する予定", reading: "다음주부터운동할거야.", meaning: "タウム チュブト ウンドンハル コヤ" },
+                { kanji: "最近たくさん歩いてる", reading: "요즘많이걸어.", meaning: "ヨジュム マニ コロ" },
+                { kanji: "昨日1時間歩いた", reading: "어제한시간걸었어.", meaning: "オジェ ハン シガン コロッソ" },
+                { kanji: "明日散歩しながら歩くよ", reading: "내일산책하면서걸을거야.", meaning: "ネイル サンチェカミョンソ コル コヤ" },
+                { kanji: "ジョギングで走った", reading: "조깅하러뛰었어.", meaning: "ジョギンハロ トィオッソ" },
+                { kanji: "今ちょうど走ってきたとこ", reading: "지금막뛰고왔어.", meaning: "チグム マク トィゴ ワッソ" },
+                { kanji: "明日の朝走る予定", reading: "내일아침에뛸거야.", meaning: "ネイル アチメ トィル コヤ" },
+                { kanji: "ここ座って", reading: "여기앉아.", meaning: "ヨギ アンジャ" },
+                { kanji: "さっきちょっと座ってた", reading: "아까잠깐앉았어.", meaning: "アッカ チャムッカン アンジャッソ" },
+                { kanji: "映画見る時座るつもり", reading: "영화볼때앉을거야.", meaning: "ヨンファ ポル ッテ アンジュル コヤ" },
+                { kanji: "列に並んでた", reading: "줄서있었어.", meaning: "チュル ソ イッソッソ" },
+                { kanji: "急に立ち上がった", reading: "갑자기일어나서섰어.", meaning: "カプチャギ イロナソ ソッソ" },
+                { kanji: "次はステージに立つよ", reading: "다음엔무대에서설거야.", meaning: "タウメン ムデエソ ソル コヤ" },
+                { kanji: "今待ってるよ", reading: "나지금기다리고있어.", meaning: "ナ チグム キダリゴ イッソ" },
+                { kanji: "すごく待った", reading: "한참기다렸어.", meaning: "ハンチャム キダリョッソ" },
+                { kanji: "もう少しだけ待つね", reading: "조금만더기다릴게.", meaning: "チョグンマン ト キダリルケ" },
+                { kanji: "今始めるよ", reading: "지금시작해.", meaning: "チグム シジャケ" },
+                { kanji: "少し前に始めた", reading: "조금전에시작했어.", meaning: "チョグム ジョネ シジャケッソ" },
+                { kanji: "すぐ始まるよ", reading: "곧시작할거야.", meaning: "コッ シジャカル コヤ" },
+                { kanji: "授業終わった", reading: "수업끝났어.", meaning: "スオプ クンナッソ" },
+                { kanji: "ちょうど終わったとこ", reading: "방금끝났어.", meaning: "パングム クンナッソ" },
+                { kanji: "もうすぐ終わるよ", reading: "곧끝날거야.", meaning: "コッ クンナル コヤ" },
+                { kanji: "窓開けて", reading: "창문열어.", meaning: "チャンムン ヨロ" },
+                { kanji: "さっき開けたよ", reading: "아까열었어.", meaning: "アッカ ヨロッソ" },
+                { kanji: "暑いから開けるね", reading: "더우니까열거야.", meaning: "トウニカ ヨル コヤ" },
+                { kanji: "ドア閉めて", reading: "문닫아줘.", meaning: "ムン タダ ジョ" },
+                { kanji: "私が閉めたよ", reading: "내가닫았어.", meaning: "ネガ タダッソ" },
+                { kanji: "静かにしたくて閉めるつもり", reading: "조용히하려고닫을거야.", meaning: "チョヨンヒ ハリョゴ タドゥル コヤ" },
+                { kanji: "この曲好き", reading: "나이노래좋아해.", meaning: "ナ イ ノレ チョアヘ" },
+                { kanji: "前にその映画好きだった", reading: "전에그영화좋아했어.", meaning: "チョネ ク ヨンファ チョアヘッソ" },
+                { kanji: "これからも好きだと思う", reading: "앞으로도계속좋아할거야.", meaning: "アプロド ケソク チョアハル コヤ" },
+                { kanji: "辛いの嫌い", reading: "나매운거싫어해.", meaning: "ナ メウン ゴ シロヘ" },
+                { kanji: "小さい頃から嫌いだった", reading: "어릴때부터싫어했어.", meaning: "オリル ッテブト シロヘッソ" },
+                { kanji: "これからも食べない", reading: "앞으로도안먹을거야.", meaning: "アプロド アン モグル コヤ" },
+                { kanji: "愛してるよ", reading: "나너사랑해.", meaning: "ナ ノ サランヘ" },
+                { kanji: "最初から愛してた", reading: "처음부터사랑했어.", meaning: "チョウムブト サランヘッソ" },
+                { kanji: "永遠に愛する", reading: "영원히사랑할거야.", meaning: "ヨンウォニ サランハル コヤ" },
+                { kanji: "今お金が必要", reading: "지금돈이필요해.", meaning: "チグム トニ ピリョヘ" },
+                { kanji: "あの時ほんと必要だった", reading: "그때는진짜필요했어.", meaning: "クッテヌン チンチャ ピリョヘッソ" },
+                { kanji: "これからも必要だよ", reading: "앞으로도필요할거야.", meaning: "アプロド ピリョハル コヤ" },
+                { kanji: "それ知ってるよ", reading: "나그거알아.", meaning: "ナ クゴ アラ" },
+                { kanji: "前から知ってた", reading: "예전부터알고있었어.", meaning: "イェジョンブト アルゴ イッソッソ" },
+                { kanji: "すぐ分かるよ", reading: "곧알게될거야.", meaning: "コッ アルゲ トェル コヤ" },
+                { kanji: "その人知らない", reading: "나그사람몰라.", meaning: "ナ ク サラム モルラ" },
+                { kanji: "昔は知らなかった", reading: "예전에몰랐어.", meaning: "イェジョネ モルラッソ" },
+                { kanji: "今後も分からないかも", reading: "앞으로도모를수도있어.", meaning: "アプロド モルル スド イッソ" },
+                { kanji: "全部覚えてる", reading: "나다기억해.", meaning: "ナ タ キオケ" },
+                { kanji: "あの日のこと覚えてた", reading: "그날기억했어.", meaning: "ク ナル キオケッソ" },
+                { kanji: "永遠に覚えてるよ", reading: "영원히기억할거야.", meaning: "ヨンウォニ キオカル コヤ" },
+                { kanji: "もう忘れたの？", reading: "벌써잊었어?", meaning: "ポルッソ イジョッソ？" },
+                { kanji: "昨日すっかり忘れてた", reading: "어제완전잊었어.", meaning: "オジェ ワンジョン イジョッソ" },
+                { kanji: "もう忘れるつもり", reading: "이젠잊을거야.", meaning: "イジェン イジュル コヤ" },
+                { kanji: "計画変えた", reading: "계획바꿨어.", meaning: "ケフェク パックォッソ" },
+                { kanji: "今変えてる途中", reading: "지금바꾸는중이야.", meaning: "チグム パックヌン チュンイヤ" },
+                { kanji: "来週変えるよ", reading: "다음주에바꿀거야.", meaning: "タウム チュエ パックル コヤ" },
+                { kanji: "結婚したの？", reading: "결혼했어?", meaning: "キョロネッソ？" },
+                { kanji: "去年結婚した", reading: "작년에결혼했어.", meaning: "チャギョネ キョロネッソ" },
+                { kanji: "もうすぐ結婚する予定", reading: "곧결혼할거야.", meaning: "コッ キョロンハル コヤ" },
+                { kanji: "ソウルに住んでる", reading: "서울에살아.", meaning: "ソウレ サラ" },
+                { kanji: "前は釜山に住んでた", reading: "전에부산에살았어.", meaning: "チョネ プサネ サラッソ" },
+                { kanji: "将来は海外で住むつもり", reading: "나중에외국에서살거야.", meaning: "ナジュンエ ウェグゲソ サル コヤ" },
+                { kanji: "花が全部枯れた", reading: "꽃이다죽었어.", meaning: "コチ タ チュゴッソ" },
+                { kanji: "昔に枯れた木だよ", reading: "옛날에죽은나무야.", meaning: "イェンナレ チュグン ナムヤ" },
+                { kanji: "死なないように気をつける", reading: "안죽게조심할거야.", meaning: "アン チュッケ チョシマル コヤ" },
+                { kanji: "手紙送ったよ", reading: "편지보냈어.", meaning: "ピョンジ ポネッソ" },
+                { kanji: "いい一日過ごした？", reading: "좋은하루보냈어?", meaning: "チョウン ハル ポネッソ？" },
+                { kanji: "週末いい時間を過ごすよ", reading: "주말에잘보낼거야.", meaning: "チュマレ チャル ポネル コヤ" },
+                { kanji: "このアプリよく使ってる", reading: "이앱자주사용해.", meaning: "イ エプ チャジュ サヨンヘ" },
+                { kanji: "昨日初めて使った", reading: "어제처음사용했어.", meaning: "オジェ チョウム サヨンヘッソ" },
+                { kanji: "これからも使うつもり", reading: "앞으로도계속사용할거야.", meaning: "アプロド ケソク サヨンハル コヤ" },
+                { kanji: "手伝うよ", reading: "도와줄게.", meaning: "トワジュルケ" },
+                { kanji: "昨日たくさん助けてくれた", reading: "어제많이도와줬어.", meaning: "オジェ マニ トワジョッソ" },
+                { kanji: "必要なら手伝うよ", reading: "필요하면도와줄거야.", meaning: "ピリョハミョン トワジュル コヤ" },
+                { kanji: "今頑張ってるよ", reading: "지금열심히하고있어.", meaning: "チグム ヨルッシミ ハゴ イッソ" },
+                { kanji: "昨日も頑張った", reading: "어제도열심히했어.", meaning: "オジェド ヨルッシミ ヘッソ" },
+                { kanji: "明日からもっと頑張る！", reading: "내일부터더열심히할거야.", meaning: "ネイルブト ト ヨルッシミ ハル コヤ" },
+
+            ]
+        };
+
 
         let currentList = [];
         let currentIndex = -1;
